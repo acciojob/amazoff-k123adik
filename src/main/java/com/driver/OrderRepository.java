@@ -108,7 +108,7 @@ public class OrderRepository {
     }
 
     public void deleteOrderById(String orderId){
-        if(orderDb.containsKey(orderId)){
+        if(isOrderAssigned.contains(orderId)){
             isOrderAssigned.remove(orderId);
         }
         else{
