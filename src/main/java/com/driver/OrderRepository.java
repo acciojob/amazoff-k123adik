@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class OrderRepository {
 
+
     HashMap<String, Order> orderDb = new HashMap<>();
 
     HashMap<String, DeliveryPartner> partnerDb = new HashMap<>();
@@ -77,7 +78,21 @@ public class OrderRepository {
 
 
     public int getCountOfUnassignedOrders(){
-
+//        int count = 0;
+//
+//        for(String orderId : orderDb.keySet()){
+//            boolean contains = false;
+//            for(String partnerId : orderPartnerPair.keySet()){
+//                List<String> list = orderPartnerPair.get(partnerId);
+//                if(list.contains(orderId)){
+//                    contains = true;
+//                }
+//            }
+//            if(contains == true){
+//                count++;
+//            }
+//        }
+//        return count;
         return isOrderAssigned.size();
     }
 
@@ -121,6 +136,21 @@ public class OrderRepository {
 
 
     public void deleteOrderById(String orderId){
+
+//        for(String partnerId : orderPartnerPair.keySet()){
+//            List<String> list = orderPartnerPair.get(partnerId);
+//            if(list.contains(orderId)){
+//                list.remove(orderId);
+//                orderPartnerPair.put(partnerId, list);
+//
+////                updating number of orders of the delivery partner
+//                DeliveryPartner partner = partnerDb.get(partnerId);
+//                int noOfOrder = partner.getNumberOfOrders();
+//                partner.setNumberOfOrders(noOfOrder-1);
+//
+//                break;
+//            }
+//        }
 
         if(orderDb.containsKey(orderId)){
             if(isOrderAssigned.contains(orderId)){
